@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Quiénes Somos">
+    <main>
+        <div class="image-section">
+            <img src="/public/aiep.jpg" class="img-fluid">
+        </div>
+    </main>
+</Layout>
+<style>
+	main {
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+
+    .image-section {
+        width: 100%;
+        height: 25em; /* Altura del contenedor */
+        overflow: hidden;
+        position: relative; /* Esto permite posicionar el h1 absolutamente dentro de este contenedor */
+    }
+
+    .img-fluid {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        object-position: left 30%; /* Ajusta la imagen hacia arriba */
+    }
+</style>

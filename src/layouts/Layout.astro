@@ -1,0 +1,57 @@
+---
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="InvenTech: 
+		Simplifica la gestión de inventarios con nuestra aplicación fácil de usar, diseñada especialmente para pymes y negocios pequeños. 
+		Controla stock, y mejora la eficiencia de tu negocio con precisión y facilidad. 
+		¡Prueba InvenTech hoy y transforma tu gestión de inventario!"/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+		<Footer />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 255, 0, 0; /* Un rojo intenso y vivo */
+		--accent-light: 255, 102, 102; /* Un rojo más claro, añadiendo verde y azul para iluminar */
+		--accent-dark: 153, 0, 0; /* Un rojo más oscuro, reduciendo la intensidad del rojo */
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)), 
+			rgb(var(--accent-light)) 30%, 
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+</style>
