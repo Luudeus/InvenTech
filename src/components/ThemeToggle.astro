@@ -79,18 +79,32 @@ import Icon from './Icon.astro';
 			const setTheme = (dark: boolean) => {
 				document.documentElement.classList[dark ? 'add' : 'remove']('theme-dark');
 				button.setAttribute('aria-pressed', String(dark));
+				this.setCookie('theme', dark ? 'dark' : 'light', 7); // Guardar el tema en una cookie
 			};
 
+			// Initialize button state to reflect current theme from cookies.
+			setTheme(this.getThemeFromCookie());
+			
 			// Toggle the theme when a user clicks the button.
 			button.addEventListener('click', () => setTheme(!this.isDark()));
-
-			// Initialize button state to reflect current theme.
-			setTheme(this.isDark());
 		}
 
 		isDark() {
 			return document.documentElement.classList.contains('theme-dark');
 		}
+
+		getThemeFromCookie(): boolean {
+			const match = document.cookie.match(/(^| )theme=([^;]+)/);
+			return match ? match[2] === 'dark' : false; // Retornar verdadero si la cookie indica 'dark'
+		}
+
+		setCookie(name: string, value: string, days: number) {
+			const date = new Date();
+			date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+			const expires = `expires=${date.toUTCString()}`;
+			document.cookie = `${name}=${value};${expires};path=/`;
+		}
 	}
 	customElements.define('theme-toggle', ThemeToggle);
 </script>
+
