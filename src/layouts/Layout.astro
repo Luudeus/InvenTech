@@ -31,12 +31,18 @@ const { title } = Astro.props;
 <style is:global>
 	:root {
 		--accent: 255, 0, 0; /* Un rojo intenso y vivo */
-		--accent-light: 255, 102, 102; /* Un rojo más claro, añadiendo verde y azul para iluminar */
-		--accent-dark: 153, 0, 0; /* Un rojo más oscuro, reduciendo la intensidad del rojo */
-		--accent-gradient: linear-gradient(
+		--accent-light-inventech: 255, 102, 102; /* Un rojo más claro, añadiendo verde y azul para iluminar */
+		--accent-dark-inventech: 153, 0, 0; /* Un rojo más oscuro, reduciendo la intensidad del rojo */
+		--accent-gradient-inventech-title: linear-gradient(
 			45deg,
 			rgb(255, 0, 0), 
 			rgb(255, 102, 102) 30%, 
+			white 60%
+		);
+		--accent-gradient-inventech: linear-gradient(
+			45deg,
+			rgb(17, 6, 6),
+			rgb(204, 0, 0) 30%, 
 			white 60%
 		);
 	}
