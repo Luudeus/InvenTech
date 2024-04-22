@@ -3,30 +3,92 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Quiénes Somos">
+    <div class="image-section">
+        <img src="/public/aiep.jpg" class="img-fluid">
+        <div class="image-overlay"></div>
+        <h1>¿Quiénes somos?</h1>
+    </div>
     <main>
-        <div class="image-section">
-            <img src="/public/aiep.jpg" class="img-fluid">
-        </div>
+        <section>
+            <h2>Acerca de InvenTech</h2>
+            <p>InvenTech es una aplicación de gestión de inventarios desarrollada por un grupo de estudiantes del AIEP dedicados a automatizar la administración de stocks en PYMEs. Nuestra plataforma nace con el objetivo de simplificar y optimizar el manejo de inventarios en diversos sectores industriales, ofreciendo una solución accesible y adaptada a los desafíos del mercado actual.</p>
+        </section>
+
+        <section>
+            <h2>Nuestra Visión</h2>
+            <p>Aspiramos a ser líderes en la gestión de inventarios en el mercado de PYMEs, mediante una plataforma intuitiva. InvenTech busca mejorar la precisión en el seguimiento de stock, facilitando así la gestión de inventario de quienes la usen.</p>
+        </section>
+
+        <section>
+            <h2>Nuestro Equipo</h2>
+            <p>Contamos con un equipo de estudiantes comprometidos con el avance tecnológico en la gestión de inventarios. Nuestro equipo se dedica a desarrollar y mejorar de forma continua las funcionalidades de InvenTech, asegurando que nuestra aplicación sea de calidad, y eficiente en la administración de inventarios.</p>
+        </section>
     </main>
 </Layout>
+
 <style>
-	main {
-        color: white;
+    main {
+        margin: auto;
+        padding: 1rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
         font-size: 20px;
         line-height: 1.6;
+        color: white;
+        position: relative; /* Agregamos posición relativa al main */
+    }
+
+    h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2; /* Ajustamos el índice z para colocar el h1 sobre el contenedor negro */
+    }
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1em;
+    }
+
+    p {
+        margin-bottom: 1.5em;
+    }
+
+    section:not(:last-child) {
+        margin-bottom: 3em;
     }
 
     .image-section {
+        position: relative; /* Agregamos posición relativa para los elementos internos */
         width: 100%;
-        height: 25em; /* Altura del contenedor */
+        height: auto;
         overflow: hidden;
-        position: relative; /* Esto permite posicionar el h1 absolutamente dentro de este contenedor */
+    }
+
+    .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: black;
+        z-index: 1; /* Ajustamos el índice z para que esté detrás del h1 */
+        opacity: 0.5; /* Ajusta la opacidad según lo desees */
     }
 
     .img-fluid {
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: auto;
         object-fit: cover; 
-        object-position: left 30%; /* Ajusta la imagen hacia arriba */
+        object-position: left 30%;
+        margin-top: -40vh; /* Ajusta este valor para controlar la cantidad de corte superior */
+        margin-bottom: -40vh; /* Ajusta este valor para controlar la cantidad de corte inferior */
     }
 </style>
